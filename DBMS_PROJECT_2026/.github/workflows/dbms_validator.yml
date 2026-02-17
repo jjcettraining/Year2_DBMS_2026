@@ -10,9 +10,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Check folder exists
+      - name: Check DBMS Folder Exists
         run: |
           if [ ! -d "DBMS_PROJECT_2026" ]; then
-            echo "Project folder missing"
+            echo "ERROR: DBMS_PROJECT_2026 folder missing"
             exit 1
           fi
+
+      - name: Success Message
+        run: echo "Folder exists. Validation Passed."
