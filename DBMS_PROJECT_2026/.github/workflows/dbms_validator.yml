@@ -1,1 +1,18 @@
+name: DBMS Validator
 
+on:
+  push:
+
+jobs:
+  check_project:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Check folder exists
+        run: |
+          if [ ! -d "DBMS_PROJECT_2026" ]; then
+            echo "Project folder missing"
+            exit 1
+          fi
